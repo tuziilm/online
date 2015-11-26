@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.OnlineStatisticsInfoMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.OnlineStatisticsInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="channel" property="channel" jdbcType="VARCHAR" />
+		<result column="datetime" property="datetime" jdbcType="VARCHAR" />
+		<result column="total" property="total" jdbcType="VARCHAR" />
+		<result column="country" property="country" jdbcType="VARCHAR" />
+        <result column="count" property="count" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.wxad.online.domain.OnlineStatisticsInfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into onlinestatistics
+		(channel,`datetime`,total,country)
+		values
+		(
+		#{channel,jdbcType=VARCHAR},
+		#{datetime,jdbcType=VARCHAR},
+		#{total,jdbcType=VARCHAR},
+		#{country,jdbcType=VARCHAR}
+		)
+	</insert>
+	<delete id="deleteById">
+        delete from onlinestatistics where id=#{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByIds">
+        delete from onlinestatistics where id in
+        <foreach collection="array" item="ids"  open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
+    <update id="updateByIdSelective" parameterType="com.wxad.online.domain.OnlineStatisticsInfo">
+        update onlinestatistics
+        <set>
+            <if test="fn.notEmpty(channel)">
+                channel=#{channel,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(datetime)">
+                `datetime`=#{datetime,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(total)">
+                total=#{total,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(country)">
+                country=#{country,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+	<sql id="Base_Column_List">
+		id,channel,`datetime`,total,country
+	</sql>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from onlinestatistics
+	</select>
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select <include refid="Base_Column_List"/> from onlinestatistics where id=#{id,jdbcType=INTEGER}
+    </select>
+    
+    <sql id="select_count_where_sql">
+        <where>
+        	`datetime` >= #{query.startTime} and `datetime` &lt;= #{query.datetime}
+        	<if test="query.channel != null">
+               and channel = #{query.channel}
+            </if>
+            <if test="query.country != null">
+               and country = #{query.country}
+            </if>
+        </where>
+    </sql>
+    <select id="select" resultMap="BaseResultMap" parameterType="com.wxad.online.common.Paginator" >
+        select
+        channel , datetime,IFNULL(sum(total),0) as total
+        from onlinestatistics
+        <include refid="select_count_where_sql"/>
+         GROUP BY channel,datetime ORDER BY total desc limit #{start},#{sqlSize} 
+    </select>
+	<select id="count" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+         select count(*) count
+        from  onlinestatistics  
+        <include refid="select_count_where_sql"/>
+    </select>
+    
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+        select COALESCE(sum(total),0)
+        from  onlinestatistics  
+        <include refid="select_count_where_sql"/>
+    </select>
+</mapper>

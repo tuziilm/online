@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.DiscountInfoMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.DiscountInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="discount" property="discount" jdbcType="INTEGER" />
+		<result column="channel" property="channel" jdbcType="VARCHAR" />
+		<result column="base" property="base" jdbcType="INTEGER" />
+		<result column="isSystemApp" property="isSystemApp" jdbcType="VARCHAR" />
+		<result column="country" property="country" jdbcType="VARCHAR" />
+		
+	</resultMap>
+
+	<insert id="insert" parameterType="com.wxad.online.domain.DiscountInfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into discount
+		(discount,channel,base,isSystemApp,country)
+		values
+		(
+		#{discount,jdbcType=INTEGER},
+		#{channel,jdbcType=VARCHAR},
+		#{base,jdbcType=INTEGER},
+		#{isSystemApp,jdbcType=INTEGER},
+		#{country,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteById">
+        delete from discount where id=#{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByIds">
+        delete from discount where id in
+        <foreach collection="array" item="ids"  open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
+    <update id="updateByIdSelective" parameterType="com.wxad.online.domain.DiscountInfo">
+        update discount
+        <set>
+            <if test="fn.notEmpty(discount)">
+                discount=#{discount,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(channel)">
+                channel=#{channel,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(isSystemApp)">
+                isSystemApp=#{isSystemApp,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(country)">
+                country=#{country,jdbcType=VARCHAR},
+            </if>
+            
+        </set>
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+	<sql id="Base_Column_List">
+		id,discount,channel,base,isSystemApp,country
+	</sql>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from discount
+	</select>
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select <include refid="Base_Column_List"/> from discount where id=#{id,jdbcType=INTEGER}
+    </select>
+    
+    <sql id="select_count_where_sql">
+        <where>
+        	<if test="query.channel != null">
+               and channel = #{query.channel}
+            </if>
+            <if test="query.country != null">
+               and discount = #{query.discount}
+            </if>
+            <if test="query.isSystemApp != null">
+               and isSystemApp = #{query.isSystemApp}
+            </if>
+            <if test="query.country != null">
+               and country = #{isSystemApp.country}
+            </if>
+            
+        </where>
+    </sql>
+    <select id="select" resultMap="BaseResultMap" parameterType="com.wxad.online.common.Paginator" >
+        select
+        <include refid="Base_Column_List" />
+        from discount
+        <include refid="select_count_where_sql"/>
+        order by id desc limit #{start},#{sqlSize}
+    </select>
+	<select id="count" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+         select count(*) count
+        from  discount  
+        <include refid="select_count_where_sql"/>
+    </select>
+    
+    <select id="countAll" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+        select COALESCE(sum(total),0)
+        from  discount  
+        <include refid="select_count_where_sql"/>
+    </select>
+</mapper>

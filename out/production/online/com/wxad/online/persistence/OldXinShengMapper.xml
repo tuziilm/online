@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.OldXinShengMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.OldXinSheng">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="datetime" property="datetime" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.wxad.online.domain.OldXinSheng">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into oldxinsheng
+		(uuid,datetime)
+		values
+		(#{uuid,jdbcType=VARCHAR},
+		#{datetime,jdbcType=VARCHAR})
+	</insert>
+	<delete id="deleteById">
+        delete from oldxinsheng where id=#{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByIds">
+        delete from oldxinsheng where id in
+        <foreach collection="array" item="ids"  open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
+    <update id="updateByIdSelective" parameterType="com.wxad.online.domain.OldXinSheng">
+        update oldxinsheng
+        <set>
+            <if test="fn.notEmpty(uuid)">
+                uuid=#{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="fn.notEmpty(datetime)">
+                datetime=#{datetime,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+	<sql id="Base_Column_List">
+		id,uuid,datetime
+	</sql>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from oldxinsheng
+	</select>
+
+	<select id="getByUuid" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from oldxinsheng where uuid=#{uuid}
+	</select>
+    <select id="count" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+        select count(*)
+        from oldxinsheng
+    </select>
+    <select id="select" resultMap="BaseResultMap" parameterType="com.wxad.online.common.Paginator" >
+        select
+        <include refid="Base_Column_List" />
+        from oldxinsheng
+        order by id desc limit #{start},#{sqlSize}
+    </select>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select <include refid="Base_Column_List"/> from oldxinsheng where id=#{id,jdbcType=INTEGER}
+    </select>
+</mapper>

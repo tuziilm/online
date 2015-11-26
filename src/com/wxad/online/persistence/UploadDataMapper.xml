@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.UploadDataMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.UploadData">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="netType" property="netType" jdbcType="VARCHAR" />
+		<result column="channel" property="channel" jdbcType="VARCHAR" />
+		<result column="datetime" property="datetime" jdbcType="VARCHAR" />
+		<result column="isTablet" property="isTablet" jdbcType="VARCHAR" />
+		<result column="macAddress" property="macAddress" jdbcType="VARCHAR" />
+		<result column="systemVersion" property="systemVersion"
+			jdbcType="VARCHAR" />
+		<result column="sdkVersion" property="sdkVersion" jdbcType="VARCHAR" />
+		<result column="country" property="country" jdbcType="VARCHAR" />
+		<result column="language" property="language" jdbcType="VARCHAR" />
+		<result column="resolution" property="resolution" jdbcType="VARCHAR" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="ram" property="ram" jdbcType="VARCHAR" />
+		<result column="rom" property="rom" jdbcType="VARCHAR" />
+		<result column="hasSim" property="hasSim" jdbcType="VARCHAR" />
+		<result column="isUpdateDeviceInfo" property="isUpdateDeviceInfo"
+			jdbcType="VARCHAR" />
+		<result column="hardware" property="hardware" jdbcType="VARCHAR" />
+		<result column="isRoot" property="isRoot" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="insertUploadData" parameterType="com.wxad.online.domain.UploadData">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into jingmoinfo
+		(uuid,version,netType,channel,isTablet,macAddress,systemVersion
+		,sdkVersion,model,language,resolution,size,ram,rom,hasSim,isUpdateDeviceInfo,hardware,isRoot,datetime,country
+		)
+		values
+		(#{uuid,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR},
+		#{netType,jdbcType=VARCHAR},
+		#{channel,jdbcType=VARCHAR},
+		#{isTablet,jdbcType=VARCHAR}, #{macAddress,jdbcType=VARCHAR},
+		#{systemVersion,jdbcType=VARCHAR},#{sdkVersion,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR},
+		#{resolution,jdbcType=VARCHAR},
+		#{size,jdbcType=VARCHAR},
+		#{ram,jdbcType=VARCHAR}, #{rom,jdbcType=VARCHAR},
+		#{hasSim,jdbcType=VARCHAR},#{isUpdateDeviceInfo,jdbcType=VARCHAR},
+		#{hardware,jdbcType=VARCHAR}, #{isRoot,jdbcType=VARCHAR},
+		#{datetime,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR})
+	</insert>
+
+	<sql id="Base_Column_List">
+		id,uuid,version,netType,channel,isTablet,macAddress,systemVersion
+		,sdkVersion,model,language,resolution,size,ram,rom,hasSim,isUpdateDeviceInfo,hardware,isRoot,datetime,country
+	</sql>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from jingmoinfo
+	</select>
+
+	<select id="getByUuid" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from jingmoinfo where uuid=#{uuid}
+	</select>
+
+	<select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from jingmoinfo where id=#{id}
+	</select>
+</mapper>

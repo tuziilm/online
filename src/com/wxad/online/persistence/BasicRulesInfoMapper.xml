@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.BasicRulesInfoMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.BasicRulesInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="channel" property="channel" jdbcType="VARCHAR" />
+		<result column="proportion" property="proportion" jdbcType="INTEGER" />
+		<result column="benchmark" property="benchmark" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.wxad.online.domain.BasicRulesInfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into basicrules
+		(channel,proportion,benchmark)
+		values
+		(#{channel,jdbcType=VARCHAR},
+		#{proportion,jdbcType=INTEGER},
+		#{benchmark,jdbcType=INTEGER})
+	</insert>
+	<delete id="deleteById">
+		delete from basicrules where id=#{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByIds">
+		delete from basicrules where id in
+		<foreach collection="array" item="ids" open="(" separator=","
+			close=")">
+			#{ids}
+		</foreach>
+	</delete>
+
+	<update id="updateByIdSelective" parameterType="com.wxad.online.domain.BasicRulesInfo">
+		update basicrules
+		<set>
+			<if test="fn.notEmpty(pushId)">
+				channel=#{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(packageName)">
+				proportion=#{proportion,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(benchmark)">
+				benchmark=#{benchmark,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id=#{id,jdbcType=INTEGER}
+	</update>
+	<sql id="Base_Column_List">
+		id,channel,proportion,benchmark
+	</sql>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from basicrules
+	</select>
+
+	<select id="getByChannel" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from basicrules where channel=#{channel}
+	</select>
+	<select id="count" resultType="java.lang.Integer"
+		parameterType="com.wxad.online.common.Paginator">
+		select count(*)
+		from basicrules
+	</select>
+	<select id="select" resultMap="BaseResultMap"
+		parameterType="com.wxad.online.common.Paginator">
+		select
+		<include refid="Base_Column_List" />
+		from basicrules
+		order by id desc limit #{start},#{sqlSize}
+	</select>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from basicrules where id=#{id,jdbcType=INTEGER}
+	</select>
+</mapper>
