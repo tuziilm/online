@@ -6,41 +6,31 @@
           class="form-inline pull-right">
         <label>名称:</label>
         <select name="packageName" id="pkgName_sel" class="input-small">
-            <option value="">鍏ㄩ儴</option>
-            <c:forEach items="${pkgs}" var="pkg">
-                <option value="${pkg.pkgName}">${pkg.appName}</option>
+            <option value="">全部</option>
+            <c:forEach items="${apps}" var="app">
+                <option value="${app.packageName}">${app.name}</option>
             </c:forEach>
         </select>
         <script type="text/javascript">
-            document.getElementById("pkgName_sel").value = '${pusher:defVal(param.pkgName,"")}';
+            document.getElementById("pkgName_sel").value = '${online:defVal(param.packageName,"")}';
         </script>
-        <label>骞垮憡鏂�:</label>
-        <select name="adOwner" id="adOwner_sel" class="input-small">
-            <option value="">鍏ㄩ儴</option>
-            <c:forEach items="${adOwners}" var="owner">
-                <option value="${owner.code}">${owner.name}</option>
-            </c:forEach>
+        <label>操作:</label>
+        <select name="action" id="action_sel" class="input-small">
+            <option value="">全部</option>
+            <option value="active">active</option>
+            <option value="delete">delete</option>
+            <option value="download">download</option>
+            <option value="install">install</option>
         </select>
         <script type="text/javascript">
-            document.getElementById("adOwner_sel").value = '${pusher:defVal(param.adOwner,"")}';
+            document.getElementById("action_sel").value = '${online:defVal(param.action,"")}';
         </script>
-        <label>骞垮憡浣�:</label>
-        <select name="pageName" id="pageName_sel" class="input-small">
-            <option value="">鍏ㄩ儴</option>
-            <c:forEach items="${activities}" var="activity">
-                <option value="${activity.className}">${activity.name}</option>
-            </c:forEach>
-        </select>
-        <script type="text/javascript">
-            document.getElementById("pageName_sel").value = '${pusher:defVal(param.pageName,"")}';
-        </script>
-		<label>寮�濮嬫椂闂�:</label>
-        <input value="${pusher:defVal(param.startTime,pusher:yesterdayString("yyyy/MM/dd"))}" type="text"
+		<label>开始时间:</label>
+        <input value="${online:defVal(param.startTime,online:yesterdayString("yyyy/MM/dd"))}" type="text"
                name="startTime" class="input-small" id="startTime"/>
-        <label>鎴鏃堕棿:</label>
-        <input value="${pusher:defVal(param.endTime,pusher:yesterdayString("yyyy/MM/dd"))}" type="text" name="endTime"
+        <label>结束时间:</label>
+        <input value="${online:defVal(param.endTime,online:yesterdayString("yyyy/MM/dd"))}" type="text" name="endTime"
                class="input-small" id="endTime"/>
-        <input type="button" class="btn" value="鏌ヨ" onclick="javascript:doQuery()"/>
-        <input onclick="javascript:doExport()" type="button" class="btn" value="瀵煎嚭excel">
+        <input type="button" class="btn" value="查询" onclick="javascript:doQuery()"/>
     </form>
 </div>
