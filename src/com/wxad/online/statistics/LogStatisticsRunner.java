@@ -1,8 +1,5 @@
 package com.wxad.online.statistics;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Files;
-import com.wxad.online.common.JsonSupport;
 import com.wxad.online.statistics.analyzer.Analyzer;
 import com.wxad.online.statistics.analyzer.LinkNodePvUvAnalyzer;
 import com.wxad.online.statistics.analyzer.TaskActionDataAnalyzer;
@@ -10,13 +7,9 @@ import com.wxad.online.statistics.analyzer.UploadStatusAnalyzer;
 import com.wxad.online.statistics.common.ChartPvUvData;
 import com.wxad.online.statistics.common.DataHolder;
 import com.wxad.online.statistics.common.DatabaseHelper;
-import org.codehaus.jackson.JsonNode;
 
-import java.io.File;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 
 public final class LogStatisticsRunner {
 	public final static void persistToDatabase(Analyzer analyzer) throws Exception {
@@ -62,6 +55,7 @@ public final class LogStatisticsRunner {
     public static void main(String[] args){
         Date date = new Date();
         String type="upload";
+//        String type="task";
         Analyzer[] analyzers = new Analyzer[0];
         switch (type){
             case "all":

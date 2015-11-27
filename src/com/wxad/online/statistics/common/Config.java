@@ -8,9 +8,10 @@ import java.util.Date;
 import java.util.Properties;
 
 public final class Config {
-	public final static String UPLOAD_STATUS_LOG = "uploadStatus.txt";
+	public final static String UPLOAD_STATUS_LOG = "uploadStatus";
 	public final static String FILE_NAME_LOG="statistic";
-	public final static String CONFIG_FILE=".pusher/config.properties";
+//	public final static String CONFIG_FILE=".pusher/config.properties";
+	public final static String CONFIG_FILE=".online/config.properties";
 	public final static String SEP="\u0001";
 	public final static boolean isWindows=System.getProperty("os.name").toLowerCase().indexOf("win")!=-1;
 
@@ -50,6 +51,18 @@ public final class Config {
 		}
 		return dayStrings;
 	}
+	/**
+	 * 获取前N天的日期字串
+	 * @return
+	 */
+	public static String[] getPreNDaysStrings1(int n, Date now) {
+		String[] dayStrings=new String[n];
+		for(int i=0;i<n;i++){
+			dayStrings[i]= DateFormatUtils.format(
+					DateUtils.addDays(now, i - n), "yyyyMMdd");
+		}
+		return dayStrings;
+	}
 
 	/**
 	 * 获取前N天的日志文件
@@ -80,7 +93,7 @@ public final class Config {
 		for(int i=0;i<n; i++){
 			file.append(DIR_LOG)
 					.append("/")
-					.append(getPreNDaysStrings(n, now)[i])
+					.append(getPreNDaysStrings1(n, now)[i])
 					.append("/")
 					.append(UPLOAD_STATUS_LOG)
 					.append(".txt");

@@ -38,6 +38,7 @@ public abstract class AbstractUploadStatusDailyAnalyzer<T,PPLE extends AbstractU
     }
 
     public void process() throws IOException {
+        System.out.println("进来处理");
 //        File dir = new File(workDir+"/"+nDay.dayStrings[0]+"/uploadStatus.txt");
 //        if(dir.exists()) {
 //            File[] files = dir.listFiles();
@@ -57,6 +58,7 @@ public abstract class AbstractUploadStatusDailyAnalyzer<T,PPLE extends AbstractU
      * 预处理
      */
     protected void preprocess() throws IOException {
+        System.out.println("预处理操作");
         AbstractLogFileHandler handler = new AbstractLogFileHandler<PPLE>(){
             public int count=0;
 

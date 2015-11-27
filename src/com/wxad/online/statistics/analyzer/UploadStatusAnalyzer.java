@@ -39,11 +39,6 @@ public class UploadStatusAnalyzer extends AbstractUploadStatusDailyAnalyzer<Uplo
     }
 
     @Override
-    protected void preprocess() throws IOException {
-
-    }
-
-    @Override
 	public DataHolder<UploadStatusData> packData() {
         final List<UploadStatusData> datas = uploadStatusDatas;
 
