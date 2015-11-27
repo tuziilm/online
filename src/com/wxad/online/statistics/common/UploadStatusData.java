@@ -14,14 +14,16 @@ public class UploadStatusData {
     private String state;
     private String uuid;
     private String msg;
+    private String date;
     private Integer version;
 
-    public UploadStatusData(String packageName, String action, String state, String uuid, String msg, Integer version) {
+    public UploadStatusData(String packageName, String action, String state, String uuid, String msg, String date, Integer version) {
         this.packageName = packageName;
         this.action = action;
         this.state = state;
         this.uuid = uuid;
         this.msg = msg;
+        this.date = date;
         this.version = version;
     }
 
@@ -72,6 +74,15 @@ public class UploadStatusData {
     public void setVersion(Integer version) {
         this.version = version;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);

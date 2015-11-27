@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/upload/status/create.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/upload/status/list.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/upload/status/search.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/wxad/online/statistics/LogStatisticsRunner.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/AbstractAnalyzer.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/AbstractDailyAnalyzer.java" charset="GBK" />

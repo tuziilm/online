@@ -1,5 +1,6 @@
 package com.wxad.online.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import com.wxad.online.persistence.AppInfoMapper;
  *
  */
 @Service
-public class AppInfoService extends BaseService<AppInfo>{
+public class AppInfoService extends ListBasedCacheSupportService<AppInfo>{
 	private AppInfoMapper appInfoMapper;
 	
 	@Autowired
@@ -24,5 +25,9 @@ public class AppInfoService extends BaseService<AppInfo>{
 	}
 	public List<AppInfo> getByPushId(int pushId){
 		return appInfoMapper.getByPushId(pushId);
+	}
+
+	public Collection<AppInfo> getAppInfosCache(){
+		return getCache();
 	}
 }

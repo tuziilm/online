@@ -10,11 +10,6 @@ import com.wxad.online.domain.UploadStatus;
 import com.wxad.online.persistence.UploadDataMapper;
 import com.wxad.online.persistence.UploadStatusMapper;
 
-/**
- * 系统用户数据操作服务类
- * @author <a href="xuzhenqin@gmail.com">Calvin Pang</a>
- *
- */
 @Service
 public class UploadStatusService  extends SimpleCacheSupportService<UploadStatus> {
 	

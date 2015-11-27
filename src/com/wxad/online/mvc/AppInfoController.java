@@ -81,7 +81,8 @@ public class AppInfoController extends CRUDController<AppInfo, AppInfoService, A
 	public static class Form extends IdForm<AppInfo> {
         @NotBlank(message = "不能为空")
         private String packageName;
-        private String url;
+		private String name;
+		private String url;
         @NotBlank(message = "type不能为空")
         private String type;
         @NotBlank(message = "version不能为空")
@@ -108,7 +109,8 @@ public class AppInfoController extends CRUDController<AppInfo, AppInfoService, A
         @Override
         public void onlineulateObj(AppInfo appInfo) {
         	appInfo.setPackageName(packageName);
-        	appInfo.setPushId(pushId);
+			appInfo.setName(name);
+			appInfo.setPushId(pushId);
         	appInfo.setType(type);
         	appInfo.setVersion(version);
         	appInfo.setActivity(activity);
@@ -173,5 +175,13 @@ public class AppInfoController extends CRUDController<AppInfo, AppInfoService, A
 		public void setEnforceInstall(String enforceInstall) {
 			this.enforceInstall = enforceInstall;
 		}
-    }
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+	}
 }

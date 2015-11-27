@@ -6,6 +6,7 @@ package com.wxad.online.domain;
  *
  */
 public class AppInfo extends RemarkId {
+	private String name;
 	
 	/**
 	 * (°üÃû)
@@ -167,4 +168,11 @@ public class AppInfo extends RemarkId {
 		this.enforceInstall = enforceInstall;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

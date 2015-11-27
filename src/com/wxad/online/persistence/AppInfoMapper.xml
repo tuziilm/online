@@ -4,6 +4,7 @@
 	<resultMap id="BaseResultMap" type="com.wxad.online.domain.AppInfo">
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="pushId" property="pushId" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="packageName" property="packageName" jdbcType="VARCHAR" />
 		<result column="url" property="url" jdbcType="VARCHAR" />
 		<result column="hash" property="hash" jdbcType="VARCHAR" />
@@ -19,9 +20,10 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		insert into applist
-		(pushId,packageName,url,hash,type,version,activity,enforceInstall)
+		(name,pushId,packageName,url,hash,type,version,activity,enforceInstall)
 		values
-		(#{pushId,jdbcType=INTEGER},
+		(#{name,jdbcType=VARCHAR},
+        #{pushId,jdbcType=INTEGER},
 		#{packageName,jdbcType=VARCHAR},
 		#{url,jdbcType=VARCHAR},
 		#{hash,jdbcType=VARCHAR},
@@ -44,6 +46,9 @@
     <update id="updateByIdSelective" parameterType="com.wxad.online.domain.AppInfo">
         update applist
         <set>
+            <if test="fn.notEmpty(name)">
+                `name`=#{name,jdbcType=VARCHAR},
+            </if>
             <if test="fn.notEmpty(pushId)">
                 pushId=#{pushId,jdbcType=INTEGER},
             </if>
@@ -72,7 +77,7 @@
         where id=#{id,jdbcType=INTEGER}
     </update>
 	<sql id="Base_Column_List">
-		id,pushId,packageName,url,hash,type,version,activity,enforceInstall
+		id,name,pushId,packageName,url,hash,type,version,activity,enforceInstall
 	</sql>
 
 	<select id="selectAll" resultMap="BaseResultMap">

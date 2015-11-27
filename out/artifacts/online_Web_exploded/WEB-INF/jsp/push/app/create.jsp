@@ -23,6 +23,13 @@
 					type="text" class="input-large">
 			</div>
 		</div>
+		<div class="control-group required-field">
+			<label class="control-label">name:</label>
+			<div class="controls">
+				<input name="name" value="${fn:escapeXml(form.name)}" type="text"
+					   class="input-large">
+			</div>
+		</div>
 		<!-- <div class="control-group required-field">
 			<label class="control-label">url:</label>
 			<div class="controls">

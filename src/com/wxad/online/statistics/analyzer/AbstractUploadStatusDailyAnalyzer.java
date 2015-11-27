@@ -19,15 +19,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractUploadStatusDailyAnalyzer<T,PPLE extends AbstractUploadStatusDailyAnalyzer.PreProcessLineEntry> extends AbstractAnalyzer<T>{
-    protected Map<String, T> dataMap= new HashMap<>();
-    private String workDir=Config.DIR_LOG+"/."+name();
 
     public AbstractUploadStatusDailyAnalyzer(Date date) {
         super(date, new NDay("LINK_NODE_DAY_1", Config.getPreNDaysUploadTxtFiles(1, date),Config.getPreNDaysStrings(1, date)));
     }
 
     public abstract static class PreProcessLineEntry extends UploadLineEntry{
-        public String hash;
+        public String date;
 
         @Override
         public PreProcessLineEntry load(String line) {

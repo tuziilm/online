@@ -21,6 +21,7 @@
 						<tr>
 							<th></th>
 							<th>编号</th>
+                            <th>名称</th>
                             <th>包名</th>
                             <th>url</th>
                             <th>hash</th>
@@ -34,6 +35,7 @@
 									<input type="checkbox" name="ids" value="${data.id}"/>
 								</td>
 								<td>${fn:escapeXml(data.id)}</td>
+								<td>${fn:escapeXml(data.name)}</td>
 								<td>${fn:escapeXml(data.packageName)}</td>
                                 <td>${fn:escapeXml(data.url)}</td>
                                 <td>${fn:escapeXml(data.hash)}</td>
