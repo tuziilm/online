@@ -9,7 +9,7 @@
 		<result column="action" property="action" jdbcType="VARCHAR" />
 		<result column="state" property="state" jdbcType="VARCHAR" />
 		<result column="msg" property="msg" jdbcType="VARCHAR" />
-		<result column="date" property="date" jdbcType="VARCHAR" />
+		<result column="date" property="datetime" jdbcType="VARCHAR" />
 		<result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
 		<result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
 	</resultMap>

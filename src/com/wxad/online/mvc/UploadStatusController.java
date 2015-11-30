@@ -23,14 +23,14 @@ import java.util.Map;
 * Time: ионГ11:36
 */
 @Controller
-@RequestMapping("/upload/status")
+@RequestMapping("/log/statistics")
 public class UploadStatusController extends ListController<UploadStatus,UploadStatisticsService,UploadStatusController.Query> {
 
     @Resource
     private AppInfoService appInfoService;
 
     public UploadStatusController() {
-        super("upload/status");
+        super("log/statistics");
     }
 
     @Resource

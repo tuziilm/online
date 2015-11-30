@@ -4,6 +4,7 @@
     <c:when test="${_module=='sales' }">
         <li class="${_underSales}"><a href="${basePath}sales/sales/list">销量统计</a></li>
         <li class="${_underCountry}"><a href="${basePath}sales/country/list">国家统计</a></li>
+        <li class="${_underUploadStatus}"><a href="${basePath}log/statistics/list">日志统计</a></li>
     </c:when>
 
     <c:when test="${_module=='online' }">
@@ -16,9 +17,6 @@
     </c:when>
     <c:when test="${_module=='pushStatusBar' }">
         <li class="${_underPushStatusBar}"><a href="${basePath}pushStatusBar/list">push状态栏规则</a></li>
-    </c:when>
-    <c:when test="${_module=='upload' }">
-        <li class="${_underUploadStatus}"><a href="${basePath}upload/status/list">日志分析</a></li>
     </c:when>
     <c:when test="${_module=='push' }">
         <li class="${_underPushApp}"><a href="${basePath}push/app/list">内置应用数据</a></li>
