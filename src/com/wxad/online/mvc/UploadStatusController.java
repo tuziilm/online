@@ -44,6 +44,7 @@ public class UploadStatusController extends ListController<UploadStatus,UploadSt
         model.addAttribute("apps", appInfoList);
         Map<String, AppInfo> appInfoMap = appInfoService.getAllAppInfos2PkgNameMapCache();
         model.addAttribute("appMap", appInfoMap);
+        paginator.setNeedTotal(true);
         return super.preList(page, paginator, query, model);
     }
 

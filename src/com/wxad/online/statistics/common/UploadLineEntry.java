@@ -22,11 +22,11 @@ public class UploadLineEntry extends ValidLineEntry {
         JsonNode jo = null;
         try {
             jo = JsonSupport.mapper.readTree(line);
-            uuid = jo.get("uuid").asText();
-            msg=jo.get("msg").asText();
-            packageName=jo.get("packageName").asText();
-            action=jo.get("action").asText();
-            state=jo.get("state").asText();
+            uuid = jo.get("uuid").getValueAsText();
+            msg=jo.get("msg").getValueAsText();
+            packageName=jo.get("packageName").getValueAsText();
+            action=jo.get("action").getValueAsText();
+            state=jo.get("state").getValueAsText();
             version=jo.get("version").getIntValue();
         } catch (IOException e) {
             setInvalid();

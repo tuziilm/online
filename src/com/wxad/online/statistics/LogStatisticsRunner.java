@@ -30,7 +30,7 @@ public final class LogStatisticsRunner {
 //        if(args.length>0){
 //            date = DateUtils.parseDate(args[0], "yyyy-MM-dd");
 //        }
-        String type="all";
+        String type="upload";
 //        if(args.length>1){
 //            type=args[1];
 //        }

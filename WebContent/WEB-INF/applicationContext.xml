@@ -62,4 +62,39 @@
 		<constructor-arg index="2" value="${redis.port}"/>
 		<constructor-arg index="3" value="${redis.timeout}"/>
 	</bean>
+    <bean id="timerTest" class="com.wxad.online.statistics.LogStatisticsRunner">
+    </bean>
+    <bean id="timerTestDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="timerTest"/>
+        </property>
+        <property name="targetMethod">
+            <value>excute</value>
+        </property>
+        <property name="concurrent">
+            <value>false</value>
+        </property>
+    </bean>
+
+    <bean id="timerTestTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="timerTestDetail"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 2 * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="taskSchedulerFactory"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="autoStartup" value="true"/>
+        <property name="startupDelay" value="1"/>
+        <property name="triggers">
+            <list>
+                <ref local="timerTestTrigger"/>
+            </list>
+        </property>
+    </bean>
 </beans>
