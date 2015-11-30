@@ -8,14 +8,17 @@
 
     <c:when test="${_module=='online' }">
         <c:if test="${online:isAdmin()}">
-        <li class="${_underOnline}"><a href="${basePath}online/list">在线量</a></li>
+            <li class="${_underOnline}"><a href="${basePath}online/list">在线量</a></li>
         </c:if>
     </c:when>
-        <c:when test="${_module=='pushrule' }">
+    <c:when test="${_module=='pushrule' }">
         <li class="${_underPushRule}"><a href="${basePath}pushRule/list">push规则</a></li>
     </c:when>
     <c:when test="${_module=='pushStatusBar' }">
         <li class="${_underPushStatusBar}"><a href="${basePath}pushStatusBar/list">push状态栏规则</a></li>
+    </c:when>
+    <c:when test="${_module=='upload' }">
+        <li class="${_underUploadStatus}"><a href="${basePath}upload/status/list">日志分析</a></li>
     </c:when>
     <c:when test="${_module=='push' }">
         <li class="${_underPushApp}"><a href="${basePath}push/app/list">内置应用数据</a></li>

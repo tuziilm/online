@@ -47,7 +47,8 @@
               <li class="${_activeOnline}"><a href="${basePath}online/list">在线量统计</a></li>-->
               <li class="${_activeSales}"><a href="${basePath}sales/sales/list">销量统计</a></li>
               <%SystemUserType sut=LoginContext.get().systemUserType;
-            if(sut==SystemUserType.ADMIN) {%>
+                if(sut==SystemUserType.ADMIN) {%>
+              <li class="${_activeUploadStatus}"><a href="${basePath}upload/status/list">日志分析</a></li>
               <!-- <li class="${_activeQQ}"><a href="${basePath}qq/list">QQ销量统计</a></li> -->
               <li class="${_activeOnline}"><a href="${basePath}online/list">在线量统计</a></li>
 	      <li class="${_activePushRule}"><a href="${basePath}pushRule/list">push规则</a></li>

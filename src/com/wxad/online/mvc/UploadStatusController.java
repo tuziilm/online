@@ -4,6 +4,7 @@ import com.wxad.online.common.Paginator;
 import com.wxad.online.domain.AppInfo;
 import com.wxad.online.domain.UploadStatus;
 import com.wxad.online.service.AppInfoService;
+import com.wxad.online.service.UploadStatisticsService;
 import com.wxad.online.service.UploadStatusService;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
 * Author: <a href="tuziilm@163.com">Tuziilm</a>
@@ -22,7 +24,7 @@ import java.util.List;
 */
 @Controller
 @RequestMapping("/upload/status")
-public class UploadStatusController extends ListController<UploadStatus,UploadStatusService,UploadStatusController.Query> {
+public class UploadStatusController extends ListController<UploadStatus,UploadStatisticsService,UploadStatusController.Query> {
 
     @Resource
     private AppInfoService appInfoService;
@@ -31,15 +33,23 @@ public class UploadStatusController extends ListController<UploadStatus,UploadSt
         super("upload/status");
     }
 
-    public void setUploadStatusService(UploadStatusService uploadStatusService) {
-        this.service = uploadStatusService;
+    @Resource
+    public void setUploadStatisticsService(UploadStatisticsService uploadStatisticsService) {
+        this.service = uploadStatisticsService;
     }
 
     @Override
     protected boolean preList(int page, Paginator paginator, Query query, Model model) {
-        List<AppInfo> appInfoList = (List<AppInfo>)appInfoService.getAppInfosCache();
+        List<AppInfo> appInfoList = appInfoService.getAllAppInfosCache();
         model.addAttribute("apps", appInfoList);
+        Map<String, AppInfo> appInfoMap = appInfoService.getAllAppInfos2PkgNameMapCache();
+        model.addAttribute("appMap", appInfoMap);
         return super.preList(page, paginator, query, model);
+    }
+
+    @Override
+    protected void postList(int page, Paginator paginator, Query query, Model model) {
+        super.postList(page, paginator, query, model);
     }
 
     public static class Query extends com.wxad.online.common.Query {

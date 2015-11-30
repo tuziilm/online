@@ -12,9 +12,15 @@ import com.wxad.online.persistence.UploadStatusMapper;
 
 @Service
 public class UploadStatusService  extends SimpleCacheSupportService<UploadStatus> {
-	
+
 	@Resource
 	private UploadStatusMapper uploadStatusMapper;
+
+	@Autowired
+	public void setTaskMapper(UploadStatusMapper uploadStatusMapper) {
+		this.mapper = uploadStatusMapper;
+		this.uploadStatusMapper = uploadStatusMapper;
+	}
 
 	public int insertUploadStatus(UploadStatus uploadStatus) {
 		return uploadStatusMapper.insertUploadStatus(uploadStatus);

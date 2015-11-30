@@ -25,6 +25,17 @@
         <script type="text/javascript">
             document.getElementById("action_sel").value = '${online:defVal(param.action,"")}';
         </script>
+        <label>状态:</label>
+        <select name="state" id="state_sel" class="input-small">
+            <option value="">全部</option>
+            <option value="success">success</option>
+            <option value="fail">fail</option>
+        </select>
+        <script type="text/javascript">
+            document.getElementById("state_sel").value = '${online:defVal(param.state,"")}';
+        </script>
+        <label>版本:</label>
+        <input type="text" name="version" value="${fn:escapeXml(param.version)}"/>
 		<label>开始时间:</label>
         <input value="${online:defVal(param.startTime,online:yesterdayString("yyyy/MM/dd"))}" type="text"
                name="startTime" class="input-small" id="startTime"/>
