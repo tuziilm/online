@@ -12,19 +12,19 @@ public class UploadStatusData {
     private String packageName;
     private String action;
     private String state;
-    private String uuid;
     private String msg;
     private String date;
     private Integer version;
+    private Integer count;
 
-    public UploadStatusData(String packageName, String action, String state, String uuid, String msg, String date, Integer version) {
+    public UploadStatusData(String packageName, String action, String state, String msg, String date, Integer version,Integer count) {
         this.packageName = packageName;
         this.action = action;
         this.state = state;
-        this.uuid = uuid;
         this.msg = msg;
         this.date = date;
         this.version = version;
+        this.count = count;
     }
 
     public String getPackageName() {
@@ -51,14 +51,6 @@ public class UploadStatusData {
         this.state = state;
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
     public String getMsg() {
         return msg;
     }
@@ -81,6 +73,14 @@ public class UploadStatusData {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     @Override

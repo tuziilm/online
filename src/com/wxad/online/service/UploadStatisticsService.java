@@ -1,15 +1,13 @@
 package com.wxad.online.service;
 
-import com.wxad.online.domain.UploadStatus;
+import com.wxad.online.domain.UploadStatistics;
 import com.wxad.online.persistence.UploadStatisticsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 @SuppressWarnings("ALL")
 @Service
-public class UploadStatisticsService extends BaseService<UploadStatus> {
+public class UploadStatisticsService extends BaseService<UploadStatistics> {
 	private UploadStatisticsMapper uploadStatisticsMapper;
 
 	@Autowired

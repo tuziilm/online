@@ -1,6 +1,6 @@
 package com.wxad.online.persistence;
 
-import com.wxad.online.domain.UploadStatus;
+import com.wxad.online.domain.UploadStatistics;
 
-public interface UploadStatisticsMapper extends BaseMapper<UploadStatus>{
+public interface UploadStatisticsMapper extends BaseMapper<UploadStatistics>{
 }

@@ -2,10 +2,9 @@ package com.wxad.online.mvc;
 
 import com.wxad.online.common.Paginator;
 import com.wxad.online.domain.AppInfo;
-import com.wxad.online.domain.UploadStatus;
+import com.wxad.online.domain.UploadStatistics;
 import com.wxad.online.service.AppInfoService;
 import com.wxad.online.service.UploadStatisticsService;
-import com.wxad.online.service.UploadStatusService;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ import java.util.Map;
 */
 @Controller
 @RequestMapping("/log/statistics")
-public class UploadStatusController extends ListController<UploadStatus,UploadStatisticsService,UploadStatusController.Query> {
+public class UploadStatusController extends ListController<UploadStatistics,UploadStatisticsService,UploadStatusController.Query> {
 
     @Resource
     private AppInfoService appInfoService;
