@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.PushRuleInfoMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.PushRuleInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="apkNum" property="apkNum" jdbcType="INTEGER" />
+		<result column="pushUrl" property="pushUrl" jdbcType="VARCHAR" />
+		<result column="deviceUrl" property="deviceUrl" jdbcType="VARCHAR" />
+		<result column="requestRate" property="requestRate" jdbcType="VARCHAR" />
+		<result column="country" property="country" jdbcType="VARCHAR" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="ram" property="ram" jdbcType="VARCHAR" />
+		<result column="channel" property="channel" jdbcType="VARCHAR" />
+		<result column="isTablet" property="isTablet" jdbcType="VARCHAR" />
+		<result column="systemVersion" property="systemVersion"
+			jdbcType="VARCHAR" />
+		<result column="sdkVersion" property="sdkVersion" jdbcType="VARCHAR" />
+		<result column="model" property="model" jdbcType="VARCHAR" />
+		<result column="resolution" property="resolution" jdbcType="VARCHAR" />
+		<result column="rom" property="rom" jdbcType="VARCHAR" />
+		<result column="hasSim" property="hasSim" jdbcType="VARCHAR" />
+		<result column="isRoot" property="isRoot" jdbcType="VARCHAR" />
+		<result column="hardware" property="hardware" jdbcType="VARCHAR" />
+		<result column="isMatching" property="isMatching" jdbcType="INTEGER" />
+		<result column="testmodel" property="testmodel" jdbcType="INTEGER" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+
+		<result column="maxInstallCount" property="maxInstallCount"
+			jdbcType="INTEGER" />
+		<result column="deleteEkenRate" property="deleteEkenRate"
+			jdbcType="INTEGER" />
+		<result column="getEmail" property="getEmail" jdbcType="INTEGER" />
+		<result column="feedbackUrl" property="feedbackUrl" jdbcType="VARCHAR" />
+
+
+		<result column="activeTime" property="activeTime" jdbcType="INTEGER" />
+		<result column="intervalTime" property="intervalTime" jdbcType="INTEGER" />
+		<result column="isActive" property="isActive" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.wxad.online.domain.PushRuleInfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into pushrule
+		(apkNum,pushUrl,deviceUrl,requestRate,country,size,ram,channel,isTablet,systemVersion,
+		sdkVersion,model,resolution,rom,hasSim,isRoot,hardware,isMatching,testmodel,version,maxInstallCount,deleteEkenRate,getEmail,feedbackUrl,activeTime,intervalTime,isActive)
+		values (#{apkNum,jdbcType=INTEGER},
+		#{pushUrl,jdbcType=VARCHAR},
+		#{deviceUrl,jdbcType=VARCHAR},
+		#{requestRate,jdbcType=VARCHAR},
+		#{country,jdbcType=VARCHAR},
+		#{size,jdbcType=VARCHAR},
+		#{ram,jdbcType=VARCHAR},
+		#{channel,jdbcType=VARCHAR},
+		#{isTablet,jdbcType=VARCHAR},
+		#{systemVersion,jdbcType=VARCHAR},
+		#{sdkVersion,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR},
+		#{resolution,jdbcType=VARCHAR},
+		#{rom,jdbcType=VARCHAR},
+		#{hasSim,jdbcType=VARCHAR},
+		#{isRoot,jdbcType=VARCHAR},
+		#{hardware,jdbcType=VARCHAR},
+		#{isMatching,jdbcType=INTEGER},
+		#{testmodel,jdbcType=INTEGER},
+		#{version,jdbcType=VARCHAR},
+		#{maxInstallCount,jdbcType=INTEGER},
+		#{deleteEkenRate,jdbcType=INTEGER},
+		#{getEmail,jdbcType=INTEGER},
+		#{feedbackUrl,jdbcType=VARCHAR},
+		#{activeTime,jdbcType=VARCHAR},
+		#{intervalTime,jdbcType=VARCHAR},
+		#{isActive,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<delete id="deleteById">
+		delete from pushrule where id=#{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByIds">
+		delete from pushrule where id in
+		<foreach collection="array" item="ids" open="(" separator=","
+			close=")">
+			#{ids}
+		</foreach>
+	</delete>
+
+	<update id="updateByIdSelective" parameterType="com.wxad.online.domain.PushRuleInfo">
+		update pushrule
+		<set>
+			<if test="fn.notEmpty(apkNum)">
+				apkNum=#{apkNum,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(pushUrl)">
+				pushUrl=#{pushUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(deviceUrl)">
+				deviceUrl=#{deviceUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(requestRate)">
+				requestRate=#{requestRate,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(country)">
+				country=#{country,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(size)">
+				size=#{size,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(ram)">
+				ram=#{ram,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(channel)">
+				channel=#{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(isTablet)">
+				isTablet=#{isTablet,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(systemVersion)">
+				systemVersion=#{systemVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(sdkVersion)">
+				sdkVersion=#{sdkVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(model)">
+				model=#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(resolution)">
+				resolution=#{resolution,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(rom)">
+				rom=#{rom,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(hasSim)">
+				hasSim=#{hasSim,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(isRoot)">
+				isRoot=#{isRoot,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(hardware)">
+				hardware=#{hardware,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(isMatching)">
+				isMatching=#{isMatching,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(testmodel)">
+				testmodel=#{testmodel,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(version)">
+				version=#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(maxInstallCount)">
+				maxInstallCount=#{maxInstallCount,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(deleteEkenRate)">
+				deleteEkenRate=#{deleteEkenRate,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(getEmail)">
+				getEmail=#{getEmail,jdbcType=INTEGER},
+			</if>
+			<if test="fn.notEmpty(feedbackUrl)">
+				feedbackUrl=#{feedbackUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(activeTime)">
+				activeTime=#{activeTime,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(intervalTime)">
+				intervalTime=#{intervalTime,jdbcType=VARCHAR},
+			</if>
+			<if test="fn.notEmpty(isActive)">
+				isActive=#{isActive,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id=#{id,jdbcType=INTEGER}
+	</update>
+
+	<sql id="Base_Column_List">
+		id,apkNum,pushUrl,deviceUrl,requestRate,country,size,ram,channel,isTablet,systemVersion,sdkVersion,model,resolution,rom,hasSim,isRoot,hardware,isMatching,testmodel,version,maxInstallCount,deleteEkenRate,getEmail,feedbackUrl,activeTime,intervalTime,isActive
+	</sql>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from pushrule
+	</select>
+
+	<select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from pushrule where id=#{id}
+	</select>
+	<select id="select" resultMap="BaseResultMap"
+		parameterType="com.wxad.online.common.Paginator">
+		select
+		<include refid="Base_Column_List" />
+		from pushrule
+		order by id desc limit #{start},#{sqlSize}
+	</select>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from pushrule where id=#{id}
+	</select>
+</mapper>

@@ -17,6 +17,7 @@ public final class Config {
 
 	protected final static Properties config=loadConfig();
 	public final static String DIR_LOG=(isWindows?"D:":"")+config.getProperty("logs.root.dir");
+	public final static String UPLOAD_LOG=(isWindows?"D:":"")+config.getProperty("upload.root.dir");
 
 	/**
 	 * 加载配置文件
@@ -63,6 +64,14 @@ public final class Config {
 		}
 		return dayStrings;
 	}
+	public static String[] getPreNMonthStrings(int n, Date now) {
+		String[] dayStrings=new String[n];
+		for(int i=0;i<n;i++){
+			dayStrings[i]= DateFormatUtils.format(
+					DateUtils.addDays(now, i - n), "yyyyMM");
+		}
+		return dayStrings;
+	}
 
 	/**
 	 * 获取前N天的日志文件
@@ -91,7 +100,9 @@ public final class Config {
 		String[] dayStrings=new String[n];
 		StringBuilder file=new StringBuilder();
 		for(int i=0;i<n; i++){
-			file.append(DIR_LOG)
+			file.append(UPLOAD_LOG)
+					.append("/")
+					.append(getPreNMonthStrings(n, now)[i])
 					.append("/")
 					.append(getPreNDaysStrings1(n, now)[i])
 					.append("/")

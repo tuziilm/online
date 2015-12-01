@@ -19,27 +19,23 @@
       </c:when>
       <c:otherwise>
         <tr>
-          <th></th>
-          <th>编号</th>
           <th>日期</th>
           <th>名称</th>
           <th>操作</th>
           <th>状态</th>
           <th>版本</th>
           <th>信息</th>
+          <th>记录数</th>
         </tr>
         <c:forEach var="data" items="${datas}">
           <tr>
-            <td class="checkbox_td">
-              <input type="checkbox" name="ids" value="${data.id}"/>
-            </td>
-            <td>${data.id}</td>
             <td>${data.datetime}</td>
-            <td>${appMap[data.packageName].appName==null?data.packageName:appMap[data.packageName].appName}</td>
+            <td>${appMap[data.packageName].name==null?data.packageName:appMap[data.packageName].name}</td>
             <td>${data.action}</td>
             <td>${data.state}</td>
             <td>${data.version}</td>
             <td>${data.msg}</td>
+            <td>${data.count}</td>
           </tr>
         </c:forEach>
       </c:otherwise>

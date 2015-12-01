@@ -54,6 +54,7 @@
       <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/apktool.jar!/" />
       <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/asm-3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WebContent/WEB-INF/lib/quartz-all-1.6.1-RC1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

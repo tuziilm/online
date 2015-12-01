@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxad.online.persistence.UploadStatisticsMapper">
+	<resultMap id="BaseResultMap" type="com.wxad.online.domain.UploadStatus">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="package_name" property="packageName" jdbcType="VARCHAR" />
+		<result column="uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="action" property="action" jdbcType="VARCHAR" />
+		<result column="state" property="state" jdbcType="VARCHAR" />
+		<result column="msg" property="msg" jdbcType="VARCHAR" />
+		<result column="date" property="datetime" jdbcType="VARCHAR" />
+		<result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+		<result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<resultMap id="ResultMap" type="com.wxad.online.domain.UploadStatus">
+		<result column="package_name" property="packageName" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="action" property="action" jdbcType="VARCHAR" />
+		<result column="state" property="state" jdbcType="VARCHAR" />
+		<result column="msg" property="msg" jdbcType="VARCHAR" />
+		<result column="date" property="datetime" jdbcType="VARCHAR" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		`id`,
+		`package_name`,
+		`uuid`,
+		`version`,
+		`action`,
+		`state`,
+		`msg`,
+		`date`,
+		`gmt_create`,
+		`gmt_modified`
+	</sql>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/> from update_status
+	</select>
+	<sql id="select_count_where_sql">
+		<where>
+			`date` >= #{query.startTime} and `date` &lt;= #{query.endTime}
+			<if test="fn.notEmpty(query.packageName)">
+				and package_name =  #{query.packageName}
+			</if>
+			<if test="fn.notEmpty(query.action)">
+				and `action` =  #{query.action}
+			</if>
+			<if test="fn.notEmpty(query.state)">
+				and state =  #{query.state}
+			</if>
+			<if test="fn.notEmpty(query.version)">
+				and version =  #{query.version}
+			</if>
+		</where>
+	</sql>
+	<select id="count" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+		select count(*) from ( select `package_name`,`version`,`action`,`state`,`msg`,`date`
+		from update_status
+		<include refid="select_count_where_sql"/>
+		GROUP  by `package_name`,`version`,`action`,`state`,`msg`,`date`) temp
+	</select>
+	<select id="select" resultMap="ResultMap" parameterType="com.wxad.online.common.Paginator" >
+		select
+		package_name,version,`action`,`state`,`msg`,`date`,COUNT(UUID) as `count`
+		from update_status
+		<include refid="select_count_where_sql"/>
+		GROUP  by `package_name`,`version`,`action`,`state`,`msg`,`date` order by `date` desc
+		limit #{start},#{sqlSize}
+	</select>
+</mapper>

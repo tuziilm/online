@@ -148,4 +148,13 @@ public class UploadStatus extends RemarkId {
 	 * upload Ê±¼ä
 	 */
 	private String datetime;
+	private Integer count;
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
 }
