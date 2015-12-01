@@ -1,5 +1,6 @@
 package com.wxad.online.service;
 
+import com.wxad.online.common.Paginator;
 import com.wxad.online.domain.UploadStatistics;
 import com.wxad.online.persistence.UploadStatisticsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ public class UploadStatisticsService extends BaseService<UploadStatistics> {
 	public void setUploadStatisticsMapper(UploadStatisticsMapper uploadStatisticsMapper) {
 		this.mapper = uploadStatisticsMapper;
 		this.uploadStatisticsMapper =uploadStatisticsMapper;
+	}
+
+	public int getSum(Paginator paginator) {
+		return uploadStatisticsMapper.getSum(paginator);
 	}
 
 }

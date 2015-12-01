@@ -38,6 +38,15 @@
             <td>${data.count}</td>
           </tr>
         </c:forEach>
+        <tr>
+          <td>合计</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>${sum}</td>
+        </tr>
       </c:otherwise>
     </c:choose>
   </table>

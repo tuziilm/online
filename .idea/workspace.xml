@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54b531c3-4a59-4420-8330-b12e3de7aca3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/online_Web_exploded/WEB-INF/classes/com/wxad/online/mvc/AppInfoController.class" afterPath="$PROJECT_DIR$/out/artifacts/online_Web_exploded/WEB-INF/classes/com/wxad/online/mvc/AppInfoController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/online/com/wxad/online/mvc/AppInfoController.class" afterPath="$PROJECT_DIR$/out/production/online/com/wxad/online/mvc/AppInfoController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java" afterPath="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml" afterPath="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java" afterPath="$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/UploadStatusAnalyzer.java" afterPath="$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/UploadStatusAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java" afterPath="$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wxad/online/statistics/common/UploadStatusData.java" afterPath="$PROJECT_DIR$/src/com/wxad/online/statistics/common/UploadStatusData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp" />
     </list>
     <ignored path="online.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,71 +42,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UploadStatusController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5192878" vertical-offset="563" max-vertical-offset="1458">
+              <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadStatusController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5365854" vertical-offset="0" max-vertical-offset="1800">
-              <caret line="25" column="86" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1836">
+              <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.properties">
+      <file leaf-file-name="UploadStatisticsService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="414">
-              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#700#701#0" expanded="true" />
+                <element signature="e#754#755#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadStatistics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/domain/UploadStatistics.java">
+      <file leaf-file-name="UploadStatisticsMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="954">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+              <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadStatusAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/UploadStatusAnalyzer.java">
+      <file leaf-file-name="UploadStatisticsMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="862" max-vertical-offset="1440">
-              <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="801" max-vertical-offset="1314">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+              <folding>
+                <marker date="1448956473781" expanded="true" signature="1203:1264" placeholder="select from ..update_status..." />
+                <marker date="1448956473781" expanded="true" signature="1864:1900" placeholder="select count..update_status..." />
+                <marker date="1448956473781" expanded="true" signature="2061:2101" placeholder="select sum(`..." />
+                <marker date="1448956473781" expanded="true" signature="2257:2417" placeholder="select from ..update_status..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskActionDataAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/TaskActionDataAnalyzer.java">
+      <file leaf-file-name="search.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/search.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="2268">
-              <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="104" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskActionData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/statistics/common/TaskActionData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1044">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogStatisticsRunner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wxad/online/statistics/LogStatisticsRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1404">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state vertical-scroll-proportion="9.71875" vertical-offset="347" max-vertical-offset="954">
+              <caret line="2" column="70" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -158,17 +154,17 @@
         <option value="$PROJECT_DIR$/src/config.properties" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/statistics/common/Config.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/domain/UploadStatus.java" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/mvc/AppInfoController.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/domain/UploadStatistics.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/AbstractUploadStatusDailyAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/statistics/common/TaskActionData.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/statistics/common/UploadStatusData.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/statistics/analyzer/UploadStatusAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java" />
+        <option value="$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java" />
         <option value="$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp" />
       </list>
     </option>
   </component>
@@ -237,6 +233,90 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statistics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,7 +584,7 @@
       <recent name="com.wxad.online.statistics.common" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LogStatisticsRunner">
+  <component name="RunManager" selected="Tomcat Server.online">
     <configuration default="false" name="LogStatisticsRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -994,16 +1074,16 @@
       <workItem from="1448865484385" duration="77000" />
       <workItem from="1448865591588" duration="3000" />
       <workItem from="1448865643134" duration="6373000" />
-      <workItem from="1448933081265" duration="16175000" />
+      <workItem from="1448933081265" duration="16918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104122000" />
+    <option name="totallyTimeSpent" value="104865000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="746" extended-state="7" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1374" height="746" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1016,7 +1096,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3381877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3381877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.72977346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1210,14 +1290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/search.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="118" max-vertical-offset="954">
-          <caret line="2" column="70" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/theme/default/func.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="756">
@@ -1367,14 +1439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.40625" vertical-offset="691" max-vertical-offset="1296">
-          <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wxad/online/mvc/AppInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5380435" vertical-offset="0" max-vertical-offset="2340">
@@ -1474,34 +1538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2682927" vertical-offset="855" max-vertical-offset="1224">
-          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
-          <folding>
-            <marker date="1448955516296" expanded="true" signature="-1:-1" placeholder="select from ..update_status..." />
-            <marker date="1448955516296" expanded="true" signature="-1:-1" placeholder="select count..update_status..." />
-            <marker date="1448955516296" expanded="true" signature="-1:-1" placeholder="select from ..update_status..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2356021" vertical-offset="0" max-vertical-offset="382">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4712042" vertical-offset="0" max-vertical-offset="396">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="414">
@@ -1528,8 +1564,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wxad/online/mvc/UploadStatusController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5365854" vertical-offset="0" max-vertical-offset="1800">
-          <caret line="25" column="86" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1836">
+          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/service/UploadStatisticsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
+          <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wxad/online/persistence/UploadStatisticsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="801" max-vertical-offset="1314">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding>
+            <marker date="1448956473781" expanded="true" signature="1203:1264" placeholder="select from ..update_status..." />
+            <marker date="1448956473781" expanded="true" signature="1864:1900" placeholder="select count..update_status..." />
+            <marker date="1448956473781" expanded="true" signature="2061:2101" placeholder="select sum(`..." />
+            <marker date="1448956473781" expanded="true" signature="2257:2417" placeholder="select from ..update_status..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/search.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.71875" vertical-offset="347" max-vertical-offset="954">
+          <caret line="2" column="70" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/log/statistics/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5192878" vertical-offset="563" max-vertical-offset="1458">
+          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
           <folding />
         </state>
       </provider>

@@ -44,6 +44,8 @@ public class UploadStatusController extends ListController<UploadStatistics,Uplo
         Map<String, AppInfo> appInfoMap = appInfoService.getAllAppInfos2PkgNameMapCache();
         model.addAttribute("appMap", appInfoMap);
         paginator.setNeedTotal(true);
+        int sum = service.getSum(paginator);
+        model.addAttribute("sum", sum);
         return super.preList(page, paginator, query, model);
     }
 

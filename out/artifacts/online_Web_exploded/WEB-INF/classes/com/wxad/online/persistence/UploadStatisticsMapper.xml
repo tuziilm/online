@@ -51,6 +51,11 @@
 		from update_status
 		<include refid="select_count_where_sql"/>
 	</select>
+	<select id="getSum" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
+		select sum(`count`)
+		from update_status
+		<include refid="select_count_where_sql"/>
+	</select>
 	<select id="select" resultMap="BaseResultMap" parameterType="com.wxad.online.common.Paginator" >
 		select
 		<include refid="Base_Column_List"/>
