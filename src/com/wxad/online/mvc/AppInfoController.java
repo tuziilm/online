@@ -32,7 +32,7 @@ public class AppInfoController extends CRUDController<AppInfo, AppInfoService, A
 	private PushRuleInfoService pushRuleInfoService;
 	
 	public AppInfoController() {
-		super("/push/app");
+		super("push/app");
 	}
 	@Resource
 	public void setAppInfoService(AppInfoService appInfoService){
