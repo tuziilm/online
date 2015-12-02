@@ -52,7 +52,7 @@
 		<include refid="select_count_where_sql"/>
 	</select>
 	<select id="getSum" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
-		select sum(`count`)
+		select COALESCE(SUM(`count`),0)
 		from update_status
 		<include refid="select_count_where_sql"/>
 	</select>
