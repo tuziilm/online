@@ -1,43 +1,21 @@
 package com.wxad.online.mvc;
 
-import java.io.File;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.commons.lang3.time.DateUtils;
-import org.apache.log4j.Logger;
-import org.json.JSONObject;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.wxad.base.util.DesUtil;
-import com.wxad.base.util.Utils;
-import com.wxad.online.common.Config;
-import com.wxad.online.common.Country;
-import com.wxad.online.common.IpSeeker;
 import com.wxad.online.common.LoginContext;
 import com.wxad.online.common.Paginator;
 import com.wxad.online.domain.SalesStatisticsInfo;
 import com.wxad.online.domain.SalesStatisticsInfoDateTimeSummary;
 import com.wxad.online.service.SalesStatisticsInfoService;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * 数据上传
- * 
- * @author <a href="xuzhenqin@gmail.com">Calvin Pang</a>
- *
- */
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "sales/sales")
 public class SalesStatisticsInfoController

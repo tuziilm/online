@@ -60,7 +60,7 @@ public class UploadStatusAnalyzer extends AbstractUploadStatusDailyAnalyzer<Uplo
         return new DataHolder<UploadStatusData>() {
             @Override
             public String sql() {
-                return "insert into update_status(package_name, action, state, msg, date, version, count, gmt_create) values(?,?,?,?,?,?,?,now())";
+                return "insert into update_status(package_name, action, state, msg, date, version, count, gmt_create) values(?,?,?,?,?,?,?,now()) on duplicate key update count = ?";
             }
 
             @Override
@@ -77,6 +77,7 @@ public class UploadStatusAnalyzer extends AbstractUploadStatusDailyAnalyzer<Uplo
                 pstmt.setString(5, data.getDate());
                 pstmt.setInt(6, data.getVersion());
                 pstmt.setInt(7, data.getCount());
+                pstmt.setInt(8, data.getCount());
             }
         };
     }

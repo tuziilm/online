@@ -5,12 +5,16 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.wxad.online.common.LoginContext.User;
+import com.wxad.online.domain.SysUser;
+import com.wxad.online.service.SysUserService;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
@@ -46,6 +50,8 @@ public class OnlineStatisticsInfoController
 		super("online");
 	}
 
+	@Resource
+	private SysUserService sysUserService;
 	private static final Logger logger = Logger
 			.getLogger(OnlineStatisticsInfoController.class);
 
@@ -60,10 +66,14 @@ public class OnlineStatisticsInfoController
 			Model model) {
 		model.addAttribute("countries", Country.countries);
 		model.addAttribute("countryMap", Country.shortcut2CountryMap);
-		query.datetime = query.datetime.replace("/", "");
-		query.startTime = query.startTime.replace("/", "");
-		if (query.country.equals("all")) {
-			query.country = null;
+		if(LoginContext.isAdmin()) {
+			List<SysUser> sysUsers = new ArrayList<>();
+			sysUsers = sysUserService.listAll();
+			model.addAttribute("users", sysUsers);
+		}else {
+			List<User> sysUsers = new ArrayList<>();
+			sysUsers.add(LoginContext.get());
+			model.addAttribute("users", sysUsers);
 		}
 		paginator.setNeedTotal(true);
 		return super.preList(page, paginator, query, model);
@@ -84,17 +94,8 @@ public class OnlineStatisticsInfoController
 		private String country;
 
 		public Query() {
-			this.datetime = DateFormatUtils.format(
-					DateUtils.addDays(new Date(), -1), "yyyyMMdd");
-			this.startTime = DateFormatUtils.format(
-					DateUtils.addDays(new Date(), -1), "yyyyMMdd");
-			if (LoginContext.isAdmin()) {
-				this.channel = null;
-			} else {
-				this.channel = LoginContext.getUserChannel();
-			}
-
-			setCountry("all");
+			this.datetime = DateFormatUtils.format(DateUtils.addDays(new Date(), -1), "yyyy-MM-dd");
+			this.startTime = DateFormatUtils.format(DateUtils.addDays(new Date(), -1), "yyyy-MM-dd");
 		}
 
 		public String getChannel() {
@@ -111,7 +112,7 @@ public class OnlineStatisticsInfoController
 		}
 
 		public void setDatetime(String datetime) {
-			this.datetime = datetime;
+			this.datetime = datetime.replaceAll("/", "-");
 			addItem("datetime", datetime);
 		}
 
@@ -120,7 +121,7 @@ public class OnlineStatisticsInfoController
 		}
 
 		public void setStartTime(String startTime) {
-			this.startTime = startTime;
+			this.startTime = startTime.replaceAll("/", "-");
 			addItem("startTime", startTime);
 		}
 

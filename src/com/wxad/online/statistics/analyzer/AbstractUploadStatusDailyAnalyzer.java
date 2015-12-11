@@ -21,7 +21,7 @@ import java.util.Map;
 public abstract class AbstractUploadStatusDailyAnalyzer<T,PPLE extends AbstractUploadStatusDailyAnalyzer.PreProcessLineEntry> extends AbstractAnalyzer<T>{
 
     public AbstractUploadStatusDailyAnalyzer(Date date) {
-        super(date, new NDay("LINK_NODE_DAY_1", Config.getPreNDaysUploadTxtFiles(1, date),Config.getPreNDaysStrings(1, date)));
+        super(date, new NDay("LINK_NODE_DAY_1", Config.getPreNDaysUploadTxtFiles(1, date, 2),Config.getPreNDaysStrings(1, date)));
     }
 
     public abstract static class PreProcessLineEntry extends UploadLineEntry{

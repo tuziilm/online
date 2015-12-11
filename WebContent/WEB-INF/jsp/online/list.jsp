@@ -19,14 +19,16 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-                            <th>渠道商</th>
-                            <th>日期</th>
+							<th>日期</th>
+							<th>渠道商</th>
+							<th>国家</th>
                            	<th>数量</th>
 						</tr>
 						<c:forEach var="data" items="${datas}">
 							<tr>
-								<td>${data.channel}</td>
 								<td>${data.datetime}</td>
+								<td>${data.channel=="all"?"所有渠道":data.channel}</td>
+								<td>${data.country=="all"?"所有国家":(data.country=="unknow"?"未知":countryMap[data.country].chineseName)}</td>
 								<td>${data.total}</td>
 							</tr>
 						</c:forEach>

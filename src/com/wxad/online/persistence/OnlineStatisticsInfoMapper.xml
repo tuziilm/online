@@ -70,23 +70,33 @@
     <sql id="select_count_where_sql">
         <where>
         	`datetime` >= #{query.startTime} and `datetime` &lt;= #{query.datetime}
-        	<if test="query.channel != null">
-               and channel = #{query.channel}
-            </if>
-            <if test="query.country != null">
-               and country = #{query.country}
-            </if>
+            <choose>
+                <when test="fn.notEmpty(query.channel)">
+                    and `channel`=#{query.channel}
+                </when>
+                <otherwise>
+                    and `channel`&lt;&gt;'all'
+                </otherwise>
+            </choose>
+            <choose>
+                <when test="fn.notEmpty(query.country)">
+                    and `country`=#{query.country}
+                </when>
+                <otherwise>
+                    and `country`&lt;&gt;'all'
+                </otherwise>
+            </choose>
         </where>
     </sql>
     <select id="select" resultMap="BaseResultMap" parameterType="com.wxad.online.common.Paginator" >
         select
-        channel , datetime,IFNULL(sum(total),0) as total
+        channel, datetime, total, country
         from onlinestatistics
         <include refid="select_count_where_sql"/>
-         GROUP BY channel,datetime ORDER BY total desc limit #{start},#{sqlSize} 
+        ORDER BY total desc limit #{start},#{sqlSize}
     </select>
 	<select id="count" resultType="java.lang.Integer" parameterType="com.wxad.online.common.Paginator" >
-         select count(*) count
+         select count(*) as count
         from  onlinestatistics  
         <include refid="select_count_where_sql"/>
     </select>

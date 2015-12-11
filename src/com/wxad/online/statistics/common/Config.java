@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public final class Config {
 	public final static String UPLOAD_STATUS_LOG = "uploadStatus";
+	public final static String UPLOAD_DATA_LOG = "uploadData";
 	public final static String FILE_NAME_LOG="statistic";
 //	public final static String CONFIG_FILE=".pusher/config.properties";
 	public final static String CONFIG_FILE=".online/config.properties";
@@ -96,7 +97,7 @@ public final class Config {
 	 * 获取前N天的上传状态文件
 	 * @return
 	 */
-	public static String[] getPreNDaysUploadTxtFiles(int n, Date now) {
+	public static String[] getPreNDaysUploadTxtFiles(int n, Date now,int type) {
 		String[] dayStrings=new String[n];
 		StringBuilder file=new StringBuilder();
 		for(int i=0;i<n; i++){
@@ -106,7 +107,7 @@ public final class Config {
 					.append("/")
 					.append(getPreNDaysStrings1(n, now)[i])
 					.append("/")
-					.append(UPLOAD_STATUS_LOG)
+					.append(type==1?UPLOAD_DATA_LOG:UPLOAD_STATUS_LOG)
 					.append(".txt");
 			dayStrings[i]=file.toString();
 			file.setLength(0);

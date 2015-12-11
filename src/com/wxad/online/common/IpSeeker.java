@@ -120,12 +120,13 @@ public class IpSeeker {
     private static IpData[] initIpDatas() {
         try{
             return Resources.readLines(Resources.getResource(IpSeeker.class, "ip.seeker.dat"), Charsets.UTF_8, new LineProcessor<IpData[]>() {
-                private IpData[] ipDatas = new IpData[68266];
+                private IpData[] ipDatas = new IpData[341358];
                 private int idx = 0;
+
                 @Override
                 public boolean processLine(String s) throws IOException {
-                    String[] fields= s.split("\\s+");
-                    ipDatas[idx++]=new IpData(fields[0], fields[1], fields[2], fields[3]);
+                    String[] fields = s.split("\\s+");
+                    ipDatas[idx++] = new IpData(fields[0], fields[1], fields[2], fields[3]);
                     return true;
                 }
 
